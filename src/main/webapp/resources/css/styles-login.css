@@ -1,0 +1,503 @@
+
+/* GENERAL ------------------------------------------------------------*/
+
+article, aside, canvas, figure, figure img, figcaption, hgroup,
+footer, header, nav, section, audio, video {
+	display: block;
+}
+
+.clearfix{ clear:both; }
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+
+
+body{
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px; margin:0px; padding:0px;
+}
+
+
+
+
+body p{
+	margin-bottom: 21px;
+}
+
+body a{
+	text-decoration: none;
+	-webkit-transition: color 0.3s ease;
+	-moz-transition: color 0.3s ease;
+	-o-transition: color 0.3s ease;
+	transition: color 0.3s ease;
+}
+section{
+	margin: 0 auto;
+	width:980px;
+}
+
+
+
+
+h1,h2,h3,h4,h5,h6{
+	font-family: 'Yanone Kaffeesatz', Arial, sans-serif;
+	font-weight: 400;
+}
+
+h1{ font-size: 48px;}
+
+h2{ font-size: 30px; }
+
+h3{ font-size: 24px; }
+
+h4{ font-size: 21px; }
+
+h5{ font-size: 18px; }
+
+h6{ font-size: 14px; }
+
+#main,
+footer,
+aside{ line-height: 1.5em; }
+
+
+header{ padding: 5px 0 5px; border-bottom:5px solid #e5e5e5; float:left; width:100%; }
+#logo { width:416px;  float: left; font-size: 0; line-height: 0;}
+#logo span { height: 72px; display: block; background: url(../images/home/wpt_logo.png)  no-repeat 0 0;  text-indent: -4000px; }
+/*#logo:hover{ opacity: 0.8;}*/
+.social{float:right; margin-top:20px; opacity: 0.7;}
+.social:hover{ opacity: 1;}
+.head{ float:left; background-image:url(../images/home/headbg.jpg);  width:100%; margin:1px 0px; height:341px;}
+.head img{ padding:0px; margin:0px;}
+
+/* ------- Login Form ------- */
+
+
+#container {
+	margin: auto;
+	margin-top: -205px;
+	text-align: left;
+	font-family: Verdana, Arial;
+	font-weight: normal;
+	font-size: 12px;
+	color: #ffffff;
+	width:100%;
+	float:left;
+	position:relative;
+	z-index:100;
+}
+.logbox{
+		float:right;
+	padding:10px;
+	background-color:rgba(59, 59, 59, 0.3);
+	border-radius: 20px; 
+-moz-border-radius: 20px ; 
+-webkit-border-radius: 20px ; 
+-o-border-radius: 20px ;
+width: 520px;
+	}
+
+ .left{
+	background-color:#303030 ;
+	width:80%;
+	float:left;
+	padding-bottom:10px;
+	border-radius: 20px 0 0 20px; 
+-moz-border-radius: 20px 0 0 20px; 
+-webkit-border-radius: 20px 0 0 20px; 
+-o-border-radius: 20px 0 0 20px;
+height:200px;
+color:#fff;
+
+	}
+ .right{
+	background-color: #06F;
+	width:20%;
+	float:left;
+	border-radius:  0 20px 20px 0 ; 
+-moz-border-radius: 0 20px 20px 0 ; 
+-webkit-border-radius: 0 20px 20px 0 ; 
+-o-border-radius: 0 20px 20px 0 ;
+padding-bottom:10px;
+height:200px;
+	}
+	
+ .logbox input,  .logbox2 input {
+	background: transparent;
+	border: 0;
+}
+
+
+
+ .logbox form {
+	padding-top: 1px;
+	width: 520px;
+}
+
+.login{
+	float: left;
+	margin-top: 33px;
+	margin-left: 20px;
+	font-size: 30px;
+	font-family: 'Yanone Kaffeesatz', Arial, sans-serif; font-weight:400;
+	color:#fff;
+	width:100%;
+}
+
+
+.error{
+	float: left;
+	margin-top: 10px;
+
+	font-size: 15px;
+	
+	color:red;
+	width:100%;
+}
+
+.login-error {
+	float: left;
+	margin-left: 15px;
+	font-size: 15px;
+	color:red;
+	width:100%;	
+	
+}
+
+.none {
+	
+	display:none;
+}
+.company-text {
+	width: auto;
+	float: left;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.username-text {
+	width: 45%;
+	float: left;
+	margin-top: 15px;
+	margin-left: 20px;
+}
+
+.password-text {
+	width: 45%;
+	float: left;
+	margin-top: 15px;
+	margin-left: 10px;
+}
+.company-field {
+	width: 55%;
+	height: 38px;
+	float:left;
+	margin-top: 10px;
+	margin-left: 10px;
+	background: url(../images/login/company-field.png) center left no-repeat;
+	color:#000;
+}
+
+.company-field:hover {
+	background: url(../images/login/company-field-hover.png) center left no-repeat;
+}
+
+
+
+.username-field {
+	width: 45%;
+	height: 38px;
+	float:left;
+	margin-top: 10px;
+	margin-left: 10px;
+	background: url(../images/login/username-field-hover.png) center left no-repeat;
+	background: url(../images/login/username-field.png) center left no-repeat;
+}
+
+.username-field:hover {
+	background: url(../images/login/username-field-hover.png) center left no-repeat;
+}
+
+.password-field {
+	width: 45%;
+	height: 38px;
+	float:left;
+	margin-top: 10px;
+	margin-left:10px;
+	background: url(../images/login/username-field-hover.png) center left no-repeat;
+	background: url(../images/login/password-field.png) center left no-repeat;
+}
+
+.password-field:hover {
+	background: url(../images/login/password-field-hover.png) center left no-repeat;	
+}
+
+input[type="text"], input[type="password"] {
+	width: 120px;
+	height: 16px;
+	margin-top: 10px;
+	margin-left: 10px;
+	font-family: Verdana, Arial;
+	font-size: 16px;
+	color: #2d2d2d;
+}
+
+
+
+/* ------------ Custom Checkbox ------------------------------- */
+
+/* Works for browsers with CSS3 support (with or without Javascript) */
+/* Works for Internet Explorer 6-8 (without CSS3 support) with Javascript */
+/* If Javascript isn't available this doesn't work for Internet Explorer 6-8 */
+
+input[type="checkbox"] {
+	position: absolute;
+	left: -999px;
+}
+
+input[type="checkbox"] + label {
+	width: 132px;
+	height: 24px;
+	float: left;
+	margin-top: 16px;
+	margin-left: 37px;
+	padding-left: 28px;
+	display: block;
+	position: relative;
+	line-height: 24px;
+	background: url(../images/login/checkbox-off.png) top left no-repeat;
+}
+
+input[type="checkbox"]:checked + label {
+	background: url(../images/login/checkbox-on.png) top left no-repeat;
+}
+
+input[type="checkbox"]:checked:hover + label, input[type="checkbox"]:checked:focus + label {
+	background: url(../images/login/checkbox-on-hover.png) top left no-repeat;
+}
+
+input[type="checkbox"]:not(:checked):hover + label, input[type="checkbox"]:not(:checked):focus + label {
+	background: url(../images/login/checkbox-off-hover.png) top left no-repeat;
+}
+
+.forgot-usr-pwd {
+	float: left;
+	margin-top: 16px;
+	margin-left: 0;
+	color: #cccccc;
+	line-height: 24px;
+}
+
+.forgot-usr-pwd a {
+	color: #cccccc;
+	text-decoration: none;
+	font-style: italic;
+}
+
+.forgot-usr-pwd a:hover, .forgot-usr-pwd a:focus {
+	text-decoration: underline;
+}
+
+input[type="submit"] {
+	width: 80px;
+	float: left;
+	margin-top: 155px;
+	margin-left: 2px;
+	font-family: Verdana, Arial;
+	font-size: 26px;
+	color: #ffffff;
+	cursor:pointer;
+
+}
+
+.home {
+	width: 70px;
+	height: 73px;
+	float: left;
+	margin-top: 122px;
+	margin-left: 21px;
+	font-size: 20px;
+	padding: 25px 0 0 15px;
+}
+
+.home:hover, .home:focus {
+	background: url(../images/login/go-hover.png) top left no-repeat;
+}
+
+.home a, .home a:hover, .home a:focus {
+	color: #ffffff;
+	text-decoration: none;
+}
+/* -------------------------------------------------------------------------- */
+
+/* ad ------------------------------------------------------------*/
+
+.ad{ background-color:#d6e3ed; height:150px; float:left; margin-top: -25px; width:100%; z-index:99;}
+.ad img{ border:2px solid #000; margin-top: 35px; width:100%; height:auto;}
+
+footer {background: #efefef; /* Old browsers */
+background: -moz-linear-gradient(top,  #efefef 0%, #ffffff 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efefef), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #efefef 0%,#ffffff 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #efefef 0%,#ffffff 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #efefef 0%,#ffffff 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #efefef 0%,#ffffff 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+width:100%;
+float:left;
+padding:0px;
+margin:0px;
+}
+.foot{ width:980px; margin:0px auto; padding:10px;}
+.footlogo{ width:40%; float: left; text-align:left;}
+.copy{ width:40%; float: right; text-align:right; padding:30px 0;}
+.button{ display:none;}
+
+.content{ float:left; padding:0px; margin:0px; width:100%;}
+.center{
+		padding:0 10px;
+		width:auto;
+	}
+.columns{ width:100%;}
+.columns > div:first-child {margin-left:0; }
+.oneThird{
+		width:31.5%;
+		margin:1%;
+		float:left;
+	}
+.oneThird +.oneThird +.oneThird,
+{
+		float:right;
+		margin-right:0;
+	}
+	
+	.imgHolder{
+		display:inline-block;
+		padding:1px;
+		margin:5px;
+		 width:100%;
+		overflow:hidden;
+		text-align:center;
+		 height: 80px;
+	}
+.oneThird h2{ color:#236be2; text-align:center; margin:5px;}
+.oneThird p{ color:#666666; line-height:18px;}
+
+
+ .right:hover {
+    box-shadow: 0 0 50px #FFFFFF inset;}
+	
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+	
+	section{ width:98%; padding:0px 1%;}
+	.button{ display:none;}
+.foot{width:92%; padding:4%;}
+
+form{ width:auto;}
+	}
+	
+	
+@media only screen and   (max-width: 767px) {
+	section{ width:100%; padding:0px;}
+	#logo{ width:108px;}
+	.social{ transform:scale(0.7);}
+.head{ display:none;}
+
+#container{ margin:0px; padding:0px; width:100%; }
+
+.logbox{
+	float:left;
+	background:none;
+	border-radius: 0px; 
+	width: 100%;
+	padding:0px;
+	margin:1px 0px;
+	}
+#container .left{
+	border-radius: 0px; 
+	height:240px;
+	width:100%;
+	background-image:url(../images/home/headbg.jpg);
+	}
+ #container .right{ display:none;}
+#container input {
+	background: transparent;
+	border: 0;
+}
+
+
+form {
+	padding-top: 1px;
+	width: 100%;
+}
+
+.username-field, .password-field {
+	width: 90%;
+	float: left;
+}
+
+.username-field {
+	background: url(../images/login/username-field-2.png) center left no-repeat;
+}
+
+.username-field:hover {
+	background: url(../images/login/username-field-hover-2.png) center left no-repeat;
+}
+
+.password-field {
+	background: url(../images/login/password-field-2.png) center left no-repeat;
+}
+
+.password-field:hover {
+	background: url(../images/login/password-field-hover-2.png) center left no-repeat;	
+}
+
+
+.username-text, .password-text  {
+	display:none;
+}
+.forgot-usr-pwd {
+	width:100%;
+	text-align:center;
+}
+input[type="submit"] {
+	width: auto;
+	height: auto;
+	margin : 20px 0 0 0 ;
+	font-size: 18px;
+}
+.button{ padding:3px 10px !important; 
+background-color:#0066CC !important; 
+border-radius: 4px; 
+-moz-border-radius: 4px ; 
+-webkit-border-radius: 4px ; 
+-o-border-radius: 4px ; display:block; padding:0px; margin:0px;}
+
+.oneThird{ width:95%; padding:2%}
+
+.ad{ display:none; overflow:hidden;}
+.foot{width:92%; padding:4%;}
+	}
+	
+	
+	@media only screen and (min-width: 480px) and   (max-width: 767px) {
+	.logbox{ background-image:url(../images/home/headbg.jpg); }
+	#logo{ width:416px;}
+	#container .left{
+	background-image: url(../images/home/head2.png) ; 
+	background-position:top right;
+	background-repeat:no-repeat;
+	background-color:transparent;
+	}
+	.forgot-usr-pwd {
+	width: 80%;
+	text-align:left;
+	margin:0 0 0 10%;
+}
+	}

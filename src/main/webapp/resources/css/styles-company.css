@@ -1,0 +1,78 @@
+body{ background-color:#2a82ff;}
+.main{ width:800px; margin:15%  auto; padding:0px; }
+.main .half{ width:42%; margin:0px; padding:1%; float:left;}
+.main .half +  .half { border-left:1px solid #CCC; width:51%; margin:0px; padding:2% 0 2% 4%;
+background: #2675e5; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI2NzVlNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyYTgyZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(left, #2675e5 0%, #2a82ff 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#2675e5), color-stop(100%,#2a82ff)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left, #2675e5 0%,#2a82ff 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left, #2675e5 0%,#2a82ff 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left, #2675e5 0%,#2a82ff 100%); /* IE10+ */
+background: linear-gradient(to right, #2675e5 0%,#2a82ff 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2675e5', endColorstr='#2a82ff',GradientType=1 ); /* IE6-8 */
+}
+.main .half p {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #FFF;
+	  margin: 0;
+    padding: 4px;
+    width: 100%;
+	float:left;
+}
+.main .half img{ margin-top:15%; }
+
+.main .half h1 {
+	font-size: 24px;
+	color: #000;
+	font-family: 'Yanone Kaffeesatz', Arial, sans-serif;
+	font-weight: 400;
+	margin:0px;
+	padding:0px;
+}
+.main .half h2 {
+	color: #000;
+	font-size: 18px;
+	font-family: Arial, Helvetica, sans-serif;
+		margin:0px;
+	padding:0px;
+}
+
+
+.logbox2 .left, .logbox2 .right{height:130px !important;}
+
+.logbox2 input[type="submit"] {
+    margin-top: 80px !important;
+}
+
+
+.main2  .half + .half{ padding:.5% !important;}
+	
+	@media only screen and   (max-width: 767px) {
+		.main{ width:70%; margin:1% auto;}
+	.main .half{ width:98%; margin:0px auto; padding:1%; float: none;}
+	.main .half +  .half { solid #CCC; width:100%; margin:0px; padding:0%; border-left: none; 
+	background: #2675e5; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI2NzVlNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyYTgyZmYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top, #2675e5 0%, #2a82ff 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2675e5), color-stop(100%,#2a82ff)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #2675e5 0%,#2a82ff 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #2675e5 0%,#2a82ff 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #2675e5 0%,#2a82ff 100%); /* IE10+ */
+background: linear-gradient(to bottom, #2675e5 0%,#2a82ff 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2675e5', endColorstr='#2a82ff',GradientType=0 ); /* IE6-8 */
+	
+	}
+		}
+		
+		@media only screen and   (max-width: 360px) {
+		.main{ width:100%; margin:1% auto;}
+		.logbox2 .left, .logbox2 .right{height:160px !important;}
+		.company-field{ width:75% !important;}
+		input[type="text"], input[type="password"]{ width:145px !important;}
+		.left, .right{ border-radius:0px !important;}
+		.logbox2 input[type="submit"] { margin-top: 120px !important;}
+		}

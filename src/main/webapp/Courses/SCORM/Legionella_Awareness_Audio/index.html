@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SCORM</title>
+
+<script type="text/javascript" src="SCORM_API_wrapper.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
+
+
+<script>
+	$(function(){
+		var scorm = pipwerks.SCORM;  //Shortcut
+		console.log(scorm);
+		var lmsConnected = scorm.init();
+		console.log(lmsConnected);
+	
+		$("#completionStatus").val(getValue("cmi.core.lesson_status"));
+		$("#bookmarkPage").val(getValue("cmi.core.lesson_location"));
+	//	alert(getValue("cmi.core.lesson_location"));
+		$("#score").val(getValue("cmi.core.score.raw"));
+		$("#suspendData").val(getValue("cmi.suspend_data"));
+	
+	   //If the scorm.init function succeeded...
+		
+		$("#setCompletion").click(function(){
+			setValue("cmi.core.lesson_status",$("#completionStatus").val());
+			
+		});
+		$("#setBookmark").click(function(){
+			setValue("cmi.core.lesson_location",$("#bookmarkPage").val());
+		});
+		$("#setScore").click(function(){
+			setValue("cmi.core.score.raw",$("#score").val());
+		});
+		$("#setSuspendData").click(function(){
+			setValue("cmi.suspend_data",$("#suspendData").val());
+			//console.log("setSuspendData");
+			
+		});
+		
+		$(window).unload(function(){
+
+			scorm.save(); //save all data that has already been sent
+			scorm.quit(); //close the SCORM API connection properly
+		});
+		
+		function setValue (command, parameter) {
+			if (lmsConnected) {
+				scorm.set(command, parameter);
+			};
+			
+		}
+
+		function getValue (command) {
+			if (lmsConnected) {
+				return scorm.get(command)
+			};
+			
+		}
+
+
+	});	
+</script>
+</head>
+<body>
+	
+  <div>
+  	<p>Completion</p> 
+  	<input id = "completionStatus"></input><input id = "setCompletion" type = "button" value = "set"></input>
+  	<p>Supported values :  completed/incomplete/passed/failed</p>
+  </div>
+  <br>
+  <div>
+  	<p>bookmark</p>
+  	<input id = "bookmarkPage"></input><input id = "setBookmark" type = "button" value = "set"></input>
+  	<p>Supported values :  string </p>
+	</div>
+	<br>
+  <div>
+  	<p>score</p>
+  	<input id = "score"></input><input id = "setScore" type = "button" value = "set"></input>
+  	<p>Supported values :  number from 1 to 100 </p>
+  </div>
+  <br>
+  <div>
+  	<p>suspend data</p>
+  	<input id = "suspendData"></input><input id = "setSuspendData" type = "button" value = "set"></input>
+  	<p>string </p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+    <!-- Master -->
+    <definition name="master.page" template="/public/template/master.jsp">
+    </definition>
+
+    <definition name="login" extends="master.page">
+        <put-attribute name="body" value="/public/login.jsp"/>
+    </definition>
+    
+   <definition name="company" extends="master.page">
+        <put-attribute name="body" value="/public/company.jsp"/>
+    </definition>    
+    
+    <definition name="master_c.page" template="/public/template/master_course.jsp">
+    </definition>    
+    
+    
+    <definition name="coursesList" extends="master_c.page">
+        <put-attribute name="body" value="/protected/contacts/courses.jsp"/>
+    </definition>     
+    
+</tiles-definitions>

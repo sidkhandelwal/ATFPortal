@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="loadxmldoc.js"> 
+</script>
+</head>
+<body>
+
+<script>
+xmlDoc=loadXMLDoc("http://localhost:8080/atfportal/books.xml");
+
+var data = xmlDoc.documentElement;
+
+x=xmlDoc.getElementsByTagName('book');
+console.log(data);
+alert(data.getAttribute('abc.bcd.ef'));
+for (i=0;i<x.length;i++)
+{
+document.write(x[i].getAttribute('abc.bcd.ef'));
+document.write("<br>");
+} 
+</script>
+</body>
+</html>
