@@ -20,7 +20,7 @@
     
     
     <definition name="coursesList" extends="master_c.page">
-        <put-attribute name="body" value="/protected/contacts/courses.jsp"/>
+        <put-attribute name="body" value="/protected/user/courses.jsp"/>
     </definition>     
     
 </tiles-definitions>

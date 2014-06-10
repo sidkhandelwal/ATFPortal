@@ -137,16 +137,16 @@ function debug (s)
 }
 
 
-function LaunchModule (url)
+function LaunchModule (id,url)
 {
 var w = 1020;
 var h = 710;
 var x = Math.max (0, (screen.width - w) / 2);
 var y = Math.max (0, (screen.height - h) / 2);
 
-	API.module = parseInt (url);
+	API.module = parseInt (id);
 
-	moduleWin = window.open ("module.php/" + url, "BCMODULE", "left=" + x + ",top=" + y + ",width=" + w + ",height=" + h + ",location=no,menubar=no,toolbar=no,status=no,resizable=no");
+	moduleWin = window.open ( url, "MODULE", "left=" + x + ",top=" + y + ",width=" + w + ",height=" + h + ",location=no,menubar=no,toolbar=no,status=no,resizable=no");
 }
 
 

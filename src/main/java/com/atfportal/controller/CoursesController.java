@@ -11,16 +11,13 @@ import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.atfportal.model.User;
-import com.atfportal.service.ContactService;
 import com.atfportal.service.CourseService;
-import com.atfportal.vo.ContactListVO;
 import com.atfportal.vo.UserCourseListVO;
 
 @Controller
@@ -29,8 +26,7 @@ public class CoursesController {
 
     private static final String DEFAULT_PAGE_DISPLAYED_TO_USER = "0";
 
-    @Autowired
-    private ContactService contactService;
+  
 
     @Autowired
     private MessageSource messageSource;
@@ -53,26 +49,8 @@ public class CoursesController {
         return createListAllResponse(page, locale,user,menu);
     }
 
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<?> search(@PathVariable("name") String name,
-                                    @RequestParam(required = false, defaultValue = DEFAULT_PAGE_DISPLAYED_TO_USER) int page,
-                                    Locale locale) {
-        return search(name, page, locale, null);
-    }
-
-    private ResponseEntity<?> search(String name, int page, Locale locale, String actionMessageKey) {
-        ContactListVO contactListVO = contactService.findByNameLike(page, maxResults, name);
-
-        if (!StringUtils.isEmpty(actionMessageKey)) {
-            addActionMessageToVO(contactListVO, locale, actionMessageKey, null);
-        }
-
-        Object[] args = {name};
-
-        addSearchMessageToVO(contactListVO, locale, "message.search.for.active", args);
-
-        return new ResponseEntity<ContactListVO>(contactListVO, HttpStatus.OK);
-    }
+   
+    
 
     private UserCourseListVO<?> listAll(int page, User user , String menu) {
     	UserCourseListVO<?> vo = null;	
@@ -99,25 +77,7 @@ public class CoursesController {
         return returnListToUser(userCourseListVO);
     }
 
-    private ContactListVO addActionMessageToVO(ContactListVO contactListVO, Locale locale, String actionMessageKey, Object[] args) {
-        if (StringUtils.isEmpty(actionMessageKey)) {
-            return contactListVO;
-        }
-
-        contactListVO.setActionMessage(messageSource.getMessage(actionMessageKey, args, null, locale));
-
-        return contactListVO;
-    }
-
-    private ContactListVO addSearchMessageToVO(ContactListVO contactListVO, Locale locale, String actionMessageKey, Object[] args) {
-        if (StringUtils.isEmpty(actionMessageKey)) {
-            return contactListVO;
-        }
-
-        contactListVO.setSearchMessage(messageSource.getMessage(actionMessageKey, args, null, locale));
-
-        return contactListVO;
-    }
+   
 
     private boolean isSearchActivated(String searchFor) {
         return !StringUtils.isEmpty(searchFor);

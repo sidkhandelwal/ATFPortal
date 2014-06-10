@@ -68,7 +68,7 @@
 
 
 				<div class="imgsection">
-					<a onclick="window.open('../Courses/SCORM/Legionella_Awareness_Audio/index.html')"
+					<a onclick="javascript:LaunchModule(123,'../Courses/SCORM/Legionella_Awareness_Audio/index.html')"
 						><span
 						class="imgtop"> </span><img
 						src="../Courses/SCORM/{{course.courseTutorialPath}}/{{course.courseLogo}}" 
