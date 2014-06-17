@@ -33,50 +33,21 @@
 			</ul>
 		</nav>
 		<div id="main">
-
+		
+		
 			<div
-				ng-class="{'text-center': page.totalCourses >5, 'none': page.totalCourses <=5}"
-				class="none">
-				<button href="#" class="btn btn-inverse"
-					ng-class="{'btn-inverse': page.currentPage != 0, 'disabled': page.currentPage == 0}"
-					ng-disabled="page.currentPage == 0" ng-click="changePage(0)"
-					title='<spring:message code="pagination.first"/>'>
-					<spring:message code="pagination.first" />
-				</button>
-				<button href="#" class="btn btn-inverse"
-					ng-class="{'btn-inverse': page.currentPage != 0, 'disabled': page.currentPage == 0}"
-					ng-disabled="page.currentPage == 0" class="btn btn-inverse"
-					ng-click="changePage(page.currentPage - 1)"
-					title='<spring:message code="pagination.back"/>'>&lt;</button>
-				<span>{{page.currentPage + 1}} <spring:message
-						code="pagination.of" /> {{page.pagesCount}}
-				</span>
-				<button href="#" class="btn btn-inverse"
-					ng-class="{'btn-inverse': page.pagesCount - 1 != page.currentPage, 'disabled': page.pagesCount - 1 == page.currentPage}"
-					ng-click="changePage(page.currentPage + 1)"
-					ng-disabled="page.pagesCount - 1 == page.currentPage"
-					title='<spring:message code="pagination.next"/>'>&gt;</button>
-				<button href="#" class="btn btn-inverse"
-					ng-class="{'btn-inverse': page.pagesCount - 1 != page.currentPage, 'disabled': page.pagesCount - 1 == page.currentPage}"
-					ng-disabled="page.pagesCount - 1 == page.currentPage"
-					ng-click="changePage(page.pagesCount - 1)"
-					title='<spring:message code="pagination.last"/>'>
-					<spring:message code="pagination.last" />
-				</button>
+				ng-class="{'text-center': page.source.length >5, 'none': page.source.length <=5}"
+				class="none">	
+			    <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1"  class="btn btn-primary">
+			        Previous
+			    </button>
+			    {{currentPage+1}}/{{numberOfPages()}} 
+			  <button ng-disabled="currentPage >= page.source.length/pageSize - 1" ng-click="currentPage=currentPage+1" class="btn btn-primary">
+			        Next
+			    </button>
 			</div>
 
-
-
-				<div class="imgsection">
-					<a onclick="javascript:LaunchModule(123,'../Courses/SCORM/Legionella_Awareness_Audio/index.html')"
-						><span
-						class="imgtop"> </span><img
-						src="../Courses/SCORM/{{course.courseTutorialPath}}/{{course.courseLogo}}" 
-						width="168" height="160" alt="" class="imgbottom"></a>
-				</div>
-
-
-			<div class="row" ng-repeat="course in page.source"
+			<div class="row" ng-repeat="course in page.source | startFrom:currentPage*pageSize | limitTo:pageSize"
 				ng-show="menuItem=='assigned' || menuItem=='library'">
 				<div class="imgsection">
 					<a onclick="window.open('../Courses/SCORM/{{course.courseTutorialPath}}/index.html')"
@@ -91,7 +62,7 @@
 					</h3>
 					<h4>{{course.courseSummary}}</h4>
 					<p>{{course.courseDescription}}</p>
-					<div class="btm-link">
+					<div class="btm-link" ng-class="{'none': menuItem!='assigned'}">
 						<a href="#"
 							ng-class="">Risk
 							Assessment </a> <a href="#" class="history">View history </a> <a

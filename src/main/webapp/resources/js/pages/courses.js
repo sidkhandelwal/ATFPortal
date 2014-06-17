@@ -2,7 +2,11 @@ var app = angular.module('atfportal', [ 'ui.bootstrap']);
 
 
 function contactsController($scope, $http , $dialog , $location, $window) {
-    $scope.pageToGet = 0;
+	$scope.currentPage = 0;
+    $scope.pageSize = 5;
+    $scope.numberOfPages=function(){
+        return Math.ceil($scope.page.source.length/$scope.pageSize);                
+    }
 
     $scope.state = 'busy';
 
@@ -30,7 +34,7 @@ function contactsController($scope, $http , $dialog , $location, $window) {
 
         $scope.startDialogAjaxRequest();
 
-        var config = {params: {page: $scope.pageToGet, menu : $scope.menuItem}};
+        var config = {params: { menu : $scope.menuItem}};
 
         $http.get(url, config)
             .success(function (data) {
@@ -43,19 +47,15 @@ function contactsController($scope, $http , $dialog , $location, $window) {
     }
 
     $scope.populateTable = function (data) {
-    	$scope.page = {source: data.courses, currentPage: $scope.pageToGet, pagesCount: data.pagesCount, totalCourses : data.totalCourses};
+    	$scope.page = {source: data.courses};
     	console.log(data);
     	
-    	if (data.pagesCount >0) {
+    	if (data.courses.length >0) {
             $scope.state = 'list';
 
-            $scope.page = {source: data.courses, currentPage: $scope.pageToGet, pagesCount: data.pagesCount, totalCourses : data.totalCourses};
-          //  console.log (data.courses);
-            if($scope.page.pagesCount <= $scope.page.currentPage){
-                $scope.pageToGet = $scope.page.pagesCount - 1;
-                $scope.page.currentPage = $scope.page.pagesCount - 1;
-            }
-
+            $scope.page = {source: data.courses};
+            console.log (data.courses);
+            
             $scope.displayCreateContactButton = true;
             $scope.displaySearchButton = true;
         } else {
@@ -111,16 +111,16 @@ function contactsController($scope, $http , $dialog , $location, $window) {
 
         $scope.errorOnSubmit = true;
         $scope.lastAction = '';
-    }
+    };
     
     $scope.resetSearch = function(){
         $scope.searchFor = "";
         $scope.pageToGet = 0;
         $scope.getContactList();
         $scope.displaySearchMessage = false;
-    }
+    };
     
-    $scope.changePage = function (page) {
+   /* $scope.changePage = function (page) {
         $scope.pageToGet = page;
 
         if($scope.searchFor){
@@ -129,7 +129,7 @@ function contactsController($scope, $http , $dialog , $location, $window) {
             $scope.getContactList();
         }
     };    
-    
+    */
 
     $scope.completionStatus = function (tutorialResultID, completedDate) {
     	//	console.log(tutorialResultID , completedDate);
@@ -191,3 +191,10 @@ function contactsController($scope, $http , $dialog , $location, $window) {
     
     $scope.getContactList();
 }
+
+app.filter('startFrom', function() {
+    return function(input, start) {
+        start = +start; //parse to int
+        return input.slice(start);
+    }
+});

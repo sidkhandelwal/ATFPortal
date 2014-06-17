@@ -34,7 +34,7 @@ public class CourseService {
     @Value("5")
     private int maxResults;
     
-    public UserCourseListVO<UserCourseVO> findAllAssignedCourse(int page,User user) {
+    public UserCourseListVO<UserCourseVO> findAllAssignedCourse(User user) {
     	
     	UserCourseListVO<UserCourseVO> vo = assignedCourseRepository.getAssignedCourses(user);
     	
@@ -55,21 +55,17 @@ public class CourseService {
 					e.printStackTrace();
 				}
     	}
-    //	vo.setCourses(assignCourses);
+  
     	
-    	int totalCourse = assignCourses.size();
-    	vo.setTotalCourses(totalCourse);
-    	vo.setPagesCount((int)Math.ceil((float)totalCourse/maxResults));
-    	if(totalCourse > (page+1)*maxResults)
-    		vo.setCourses(assignCourses.subList(page*maxResults, (page+1)*maxResults));
-    	else
-    		vo.setCourses(assignCourses.subList(page*maxResults, totalCourse));
+    	
+    		vo.setCourses(assignCourses);
+    
    	
     	
     	return vo;
     }
     
-  public UserCourseListVO<UserCourseVO> findAllUnAssignedCourse(int page,User user) {
+  public UserCourseListVO<UserCourseVO> findAllUnAssignedCourse(User user) {
     	
     	UserCourseListVO<UserCourseVO> vo = assignedCourseRepository.getAssignedCourses(user);
     	
@@ -92,13 +88,8 @@ public class CourseService {
 	}
  //   	vo.setCourses(unAssignCourses);
     	
-       	int totalCourse = unAssignCourses.size();
-    	vo.setTotalCourses(totalCourse);
-    	vo.setPagesCount((int)Math.ceil((float)totalCourse/maxResults));
-    	if(totalCourse > (page+1)*maxResults)
-    		vo.setCourses(unAssignCourses.subList(page*maxResults, (page+1)*maxResults));
-    	else
-    		vo.setCourses(unAssignCourses.subList(page*maxResults, totalCourse));
+       
+    		vo.setCourses(unAssignCourses);
    	
      	
     	
@@ -107,19 +98,15 @@ public class CourseService {
   
   
   
-  public UserCourseListVO<UserOfflineCourses> findAllOfflineCoursesAssignedToUser(int page, User user) {
+  public UserCourseListVO<UserOfflineCourses> findAllOfflineCoursesAssignedToUser( User user) {
 	  
 	  UserCourseListVO<UserOfflineCourses> vo = new UserCourseListVO<UserOfflineCourses>();
 	  
 	  List<UserOfflineCourses> courses = userOfflineCourseRepository.findByUserID(user.getUserID());
 	  
 	  	int totalCourse = courses.size();
-	  	vo.setTotalCourses(totalCourse);
-	  	vo.setPagesCount((int)Math.ceil((float)totalCourse/maxResults));
-	  	if(totalCourse > (page+1)*maxResults)
-	  		vo.setCourses(courses.subList(page*maxResults, (page+1)*maxResults));
-	  	else
-	  		vo.setCourses(courses.subList(page*maxResults, totalCourse));
+	  	
+	  		vo.setCourses(courses);
 	  
 	  return vo;
   }

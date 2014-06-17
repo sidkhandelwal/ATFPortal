@@ -15,7 +15,7 @@ API = {
 
 		var success = r && r.getAttribute ("success") == 1;
 			
-		alert(success);
+		//alert(success);
 		if (success) {
 			this.values ["cmi.core.lesson_status"] = r.getAttribute ("cmi.core.lesson_status");
 			this.values ["cmi.core.student_name"] = r.getAttribute ("cmi.core.student_name");
@@ -79,7 +79,7 @@ API = {
 	Submit: function (params, waitResponse)
 	{
 		params = "module=" + this.module + "&" + params;
-		alert(params);
+		//alert(params);
 		
 		try {
 			http = new XMLHttpRequest();
@@ -133,7 +133,7 @@ function Init()
 
 function debug (s)
 {
-	alert (s);
+	//alert (s);
 }
 
 

@@ -43,23 +43,23 @@ public class CoursesController {
     }
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<?> listAll(@RequestParam int page, @RequestParam String menu, Locale locale, HttpSession session) {
+    public ResponseEntity<?> listAll( @RequestParam String menu, Locale locale, HttpSession session) {
     	User user = (User)session.getAttribute("user");
     	
-        return createListAllResponse(page, locale,user,menu);
+        return createListAllResponse( locale,user,menu);
     }
 
    
     
 
-    private UserCourseListVO<?> listAll(int page, User user , String menu) {
+    private UserCourseListVO<?> listAll( User user , String menu) {
     	UserCourseListVO<?> vo = null;	
     	if( "assigned".equals(menu))
-    		vo = courseService.findAllAssignedCourse(page,user);
+    		vo = courseService.findAllAssignedCourse(user);
     	else if ("library".equals(menu))
-    		vo = courseService.findAllUnAssignedCourse(page,user);
+    		vo = courseService.findAllUnAssignedCourse(user);
     	else
-    		vo = courseService.findAllOfflineCoursesAssignedToUser(page, user);
+    		vo = courseService.findAllOfflineCoursesAssignedToUser(user);
     	
     	return vo;
     }
@@ -68,12 +68,12 @@ public class CoursesController {
         return new ResponseEntity<UserCourseListVO<?>>(userCourseListVO, HttpStatus.OK);
     }
 
-    private ResponseEntity<?> createListAllResponse(int page, Locale locale, User user,  String menu) {
-        return createListAllResponse(page, locale, null, user, menu);
+    private ResponseEntity<?> createListAllResponse( Locale locale, User user,  String menu) {
+        return createListAllResponse(locale, null, user, menu);
     }
 
-    private ResponseEntity<?> createListAllResponse(int page, Locale locale, String messageKey, User user,  String menu) {
-    	UserCourseListVO<?> userCourseListVO = listAll(page, user,  menu);
+    private ResponseEntity<?> createListAllResponse( Locale locale, String messageKey, User user,  String menu) {
+    	UserCourseListVO<?> userCourseListVO = listAll( user,  menu);
         return returnListToUser(userCourseListVO);
     }
 
